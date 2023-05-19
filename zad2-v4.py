@@ -69,7 +69,7 @@ def get_ordering(adj_list, nodes):
             # znalazlem poprzednika
             if ord(n) < ord(k):
                 # jesli to najdluzsza sciezka, robie update
-                if new_dict[k] < nodes[n]:
+                if new_dict[k] < (nodes[n] + new_dict[n]):
                     new_dict[k] = nodes[n] + new_dict[n]
 
     return new_dict
@@ -193,8 +193,6 @@ def main():
         sys.exit()
 
     adj_list = get_adj_list(edges)
-
-    nodes = extend_nodes(adj_list, nodes)
 
     start_times = get_ordering(adj_list, nodes)
 
